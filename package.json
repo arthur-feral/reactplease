@@ -16,7 +16,7 @@
     "url": "git+ssh://git@github.com/arthur-feral/reactplease.git"
   },
   "engines": {
-    "node": "0.12.*"
+    "node": "5.7.*"
   },
   "author": "Arthur Féral <arthur.feral@hotmail.fr>",
   "license": "MIT",
@@ -25,16 +25,19 @@
   },
   "homepage": "https://github.com/arthur-feral/reactplease#readme",
   "dependencies": {
-    "lodash": "3.x.x",
-    "commander": "2.9.0"
+    "chalk": "^1.1.1",
+    "commander": "2.9.0",
+    "find-parent-dir": "^0.3.0",
+    "lodash": "3.x.x"
   },
   "devDependencies": {
-    "babel-register": "6.5.2",
     "babel-preset-es2015": "6.5.0",
+    "babel-register": "6.5.2",
     "chai": "3.x.x",
-    "sinon": "1.17.3",
-    "sinon-chai": "2.8.0",
     "check-build": "*",
-    "mocha": "2.x.x"
+    "mocha": "2.x.x",
+    "mock-fs": "^3.7.0",
+    "sinon": "1.17.3",
+    "sinon-chai": "2.8.0"
   }
 }
