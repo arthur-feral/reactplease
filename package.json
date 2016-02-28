@@ -3,7 +3,9 @@
   "title": "reactplease",
   "version": "0.1.0",
   "description": "A simple React class generator to avoid repeating code",
-  "main": "index.js",
+  "bin": {
+    "reactplease": "./bin/reactplease.js"
+  },
   "scripts": {
     "test": "mocha --compilers js:babel-register -r test/bootstrap.test.js 'test/**/*.test.js'",
     "test-watch": "mocha --compilers js:babel-register -w -G -r test/bootstrap.test.js 'test/**/*.test.js'",
@@ -24,7 +26,7 @@
   "homepage": "https://github.com/arthur-feral/reactplease#readme",
   "dependencies": {
     "lodash": "3.x.x",
-    "yargs": "4.2.0"
+    "commander": "2.9.0"
   },
   "devDependencies": {
     "babel-register": "6.5.2",
