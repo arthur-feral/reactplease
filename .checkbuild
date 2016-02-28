@@ -1,0 +1,7 @@
+{
+  "extends": [".checkbuildrc_base"],
+  "urls": ["https://raw.githubusercontent.com/arthur-feral/javascript-convention/master/.checkbuildrc_base"],
+  "david": {
+    "ignore": ["babelify", "lodash"]
+  }
+}
