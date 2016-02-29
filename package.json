@@ -1,7 +1,7 @@
 {
   "name": "reactplease",
   "title": "reactplease",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple React class generator to avoid repeating code",
   "bin": {
     "reactplease": "./bin/reactplease.js"
@@ -23,6 +23,12 @@
   "bugs": {
     "url": "https://github.com/arthur-feral/reactplease/issues"
   },
+  "keywords": [
+    "react",
+    "class",
+    "generator",
+    "helper"
+  ],
   "homepage": "https://github.com/arthur-feral/reactplease#readme",
   "dependencies": {
     "camelize": "^1.0.0",
