@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/arthur-feral/reactplease#readme",
   "dependencies": {
+    "camelize": "^1.0.0",
     "chalk": "^1.1.1",
     "commander": "2.9.0",
     "find-parent-dir": "^0.3.0",

@@ -5,7 +5,7 @@ const chalk        = require('chalk');
 const generator    = require('./generator');
 const configparser = require('./configparser');
 const DEFAULT      = {
-  "es6": true,
+  "es6": false,
   "import": []
 };
 
@@ -38,7 +38,17 @@ function getConfig(commander) {
 function process(commander) {
   let config    = getConfig(commander);
   let className = commander.args[0];
-  console.log(config);
+  let file      = null
+  try {
+    file = generator.generate(className, config);
+  } catch (e) {
+    console.log(chalk.red('! Something went wrong while creating React Class file %s'), className);
+  }
+  if (file === null) {
+    console.log(chalk.red('! Something went wrong while creating React Class file %s'), className);
+  } else {
+    console.log(chalk.green('* React Class %s created'), className);
+  }
 }
 
 module.exports = {
