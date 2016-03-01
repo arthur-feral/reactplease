@@ -40,17 +40,12 @@ function getConfig(commander) {
 }
 
 function generateFile(className, config) {
-  let file = null;
-
   try {
-    file = generator.generate(className, config);
+    generator.generate(className, config);
+    console.log(chalk.green('* React Class %s created'), className);
   } catch (e) {
     console.log(chalk.red('! Something went wrong while creating React Class file %s'), className);
-  }
-  if (file === null) {
-    console.log(chalk.red('! Something went wrong while creating React Class file %s'), className);
-  } else {
-    console.log(chalk.green('* React Class %s created'), className);
+    console.log(chalk.red('! %s'), e.message);
   }
 }
 
