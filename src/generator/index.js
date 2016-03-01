@@ -10,8 +10,8 @@ const es5Template = fs.readFileSync([__dirname, 'templates/es5'].join('/'), 'utf
 function generate(className, config) {
   let rawPath     = className.split('/');
   let path        = _.dropRight(rawPath).join('/');
-  let name        = _.last(rawPath).replace('.jsx', '');
-  const fileName  = [process.cwd(), path, `${name}.jsx`].join('/');
+  let name        = _.last(rawPath).replace('.' + config.extension, '');
+  const fileName  = [process.cwd(), path, `${name}.${config.extension}`].join('/');
   let fileContent = config.es6 ? es6Template : es5Template;
   fileContent     = fileContent.replace('<% className %>', name);
   let imports     = '';
