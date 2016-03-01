@@ -3,5 +3,6 @@
     "import": [
         "lodash",
         "classnames"
-    ]
+    ],
+    "extension": "react"
 }

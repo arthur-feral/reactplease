@@ -17,14 +17,15 @@ npm install -g reactplease
 
 How to use
 -------------
-You can create a config file at the root of the project to avoid using args on CLI.
+You can create a config file at the root of the project to avoid using flags on CLI.
 Simply create a ```.reactpleaserc``` file, and using JSON syntax, add options as follow
 
 *Example*
 ```JSON
 {
 	"es6": true,
-	"import": ["lodash", "classnames"]
+	"import": ["lodash", "classnames"],
+	"extension": "jsx"
 }
 ```
 ###Options
@@ -34,23 +35,42 @@ Simply create a ```.reactpleaserc``` file, and using JSON syntax, add options as
 
 **es6**
 
-```--es6``` flag will generate your JSX class file with ECMAScript2015 syntax
+```--es6``` this will generate your javascript file with ES6 syntax
+
+**extension**
+
+```-e/--ext``` To specify the file extension
 
 **import**
 
-```--import <packages>``` you can automaticly import packages top of the React file
+```--import <packages>``` this can import packages top of the React file for you
 
 *Example*
 ```--import lodash,classnames```
-and The last argument expected by command is the class name
 
-*Example*
-```bash
-reactplease --es6 ---import lodash,classnames MyFancyReactClass
-reactplease --ignore --es6 ---import lodash my/path/to/MyFancyReactClass
+will output top of the file
+```javascript
+const lodash = require('lodash');
+const classnames = require('classnames');
 ```
 
-will output a file in the current working directory named ```MyFancyReactClass.jsx```
+**ClassName**
 
+```MyClassName``` this this simply the last argument and the **required** one, that is the class name of your component appearing in the ```displayName``` prop of the class name, and on the output file name
+
+*Examples*
+```bash
+reactplease --es6 ---import lodash,classnames HeaderMenu
+reactplease --ignore --es6 ---import lodash my/path/to/MyFancyReactClass
+reactplease -e react Avatar
+```
+
+The file will be generated on the folder relative to the current working directory
+
+*type reactplease -h* to display help
+
+```javascript
+return enjoy;
+```
 
 

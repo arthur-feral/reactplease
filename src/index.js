@@ -8,7 +8,8 @@ const generator    = require('./generator');
 const configparser = require('./configparser');
 const DEFAULT      = {
   "es6": false,
-  "import": []
+  "import": [],
+  "extension": "jsx"
 };
 
 /**
@@ -28,7 +29,8 @@ function getConfig(commander) {
     } else {
       console.log(chalk.green('* No config file found'));
     }
-    config['es6'] = commander.es6 ? commander.es6 : DEFAULT.es6;
+    config['es6']       = commander.es6 ? commander.es6 : DEFAULT.es6;
+    config['extension'] = commander.ext ? commander.ext : DEFAULT.extension;
     if (commander.import) {
       config['import'] = commander.import.split(',');
     }
@@ -38,17 +40,12 @@ function getConfig(commander) {
 }
 
 function generateFile(className, config) {
-  let file = null;
-
   try {
-    file = generator.generate(className, config);
+    generator.generate(className, config);
+    console.log(chalk.green('* React Class %s created'), className);
   } catch (e) {
     console.log(chalk.red('! Something went wrong while creating React Class file %s'), className);
-  }
-  if (file === null) {
-    console.log(chalk.red('! Something went wrong while creating React Class file %s'), className);
-  } else {
-    console.log(chalk.green('* React Class %s created'), className);
+    console.log(chalk.red('! %s'), e.message);
   }
 }
 
@@ -56,7 +53,7 @@ function run(commander) {
   let config              = getConfig(commander);
   let className           = commander.args[0];
   const overwriteQuestion = 'file already exist, overwrite ? y/n';
-  const fileName          = [process.cwd(), `${className}.jsx`].join('/');
+  const fileName          = [process.cwd(), `${className}.${config.extension}`].join('/');
 
   try {
     //checking if file already exists

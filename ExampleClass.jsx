@@ -1,10 +1,10 @@
 'use strict';
 
 const React = require('react');
-<% imports %>
+
 module.exports = () => {
   return React.createClass({
-    displayName: '<% className %>',
+    displayName: 'ExampleClass',
     mixins: [],
     propTypes: {},
     getDefaultProps() {
