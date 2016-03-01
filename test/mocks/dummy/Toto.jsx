@@ -1,49 +1,46 @@
 'use strict';
 
-const React = require('react');
-const lodash = require('lodash');
-const classnames = require('classnames');
+var React = require('react');
 
-
-module.exports = () => {
+module.exports = function() {
   return React.createClass({
     displayName: 'Toto',
     mixins: [],
     propTypes: {},
-    getDefaultProps() {
+    getDefaultProps: function() {
       return {};
     },
-    getInitialState() {
+    getInitialState: function() {
       return {};
     },
 
-    componentWillMount() {
+    componentWillMount: function() {
 
     },
-    componentDidMount() {
+    componentDidMount: function() {
 
     },
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps: function(nextProps) {
 
     },
 
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate: function(nextProps, nextState) {
       return true;
     },
 
-    componentWillUpdate(nextProps, nextState) {
+    componentWillUpdate: function(nextProps, nextState) {
 
     },
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate: function(prevProps, prevState) {
 
     },
 
-    componentWillUnmount() {
+    componentWillUnmount: function() {
 
     },
 
-    render() {
+    render: function() {
       return (
         <div></div>
       );
