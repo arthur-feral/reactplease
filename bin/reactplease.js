@@ -2,7 +2,7 @@
 'use strict';
 
 const commander   = require('commander');
-const chalk       = require('chalk');
+const prompt      = require('prompt');
 const reactplease = require('../src');
 const packagejson = require('../package.json');
 
@@ -14,10 +14,10 @@ commander
   .option('--es6', 'use EcmaScript 6 syntax')
   .parse(process.argv);
 
+prompt.start();
+
 if (!commander.args.length) {
   commander.help();
 } else {
-  reactplease.process(commander);
-
-  process.exit(0);
+  reactplease.run(commander);
 }

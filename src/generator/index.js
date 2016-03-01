@@ -9,24 +9,16 @@ const es5Template = fs.readFileSync([__dirname, 'templates/es5'].join('/'), 'utf
 
 function generate(className, config) {
   const fileName  = [process.cwd(), `${className}.jsx`].join('/');
-  let fileContent = '';
-  if (config.es6) {
-    fileContent += es6Template;
-  } else {
-    fileContent += es5Template;
-  }
-  fileContent = fileContent.replace('<% className %>', className);
-  let imports = '';
+  let fileContent = config.es6 ? es6Template : es5Template;
+  fileContent     = fileContent.replace('<% className %>', className);
+  let imports     = '';
   _.forEach(config.import, (include) => {
-    if (config.es6) {
-      imports += `const ${camelize(include)} = require('${include}');`;
-    } else {
-      imports += `var ${camelize(include)} = require('${include}');`;
-    }
+    imports += config.es6 ? 'const ' : 'var ';
+    imports += `${camelize(include)} = require('${include}');`;
     imports += '\n';
   });
   fileContent = fileContent.replace('<% imports %>', imports);
-  fs.writeFileSync(fileName, fileContent, {force: true})
+  fs.writeFileSync(fileName, fileContent, {force: true});
 }
 
 module.exports = {

@@ -12,7 +12,7 @@ let config          = {};
  */
 const parse = (filePath) => {
   let fileContent;
-  console.log(chalk.yellow('reading config file from: %s'), filePath);
+  console.log(chalk.yellow('* using %s'), filePath);
   try {
     fileContent = fs.readFileSync(filePath, 'utf8');
   } catch (e) {

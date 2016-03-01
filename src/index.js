@@ -1,6 +1,8 @@
 'use strict';
 
+const fs           = require('fs');
 const _            = require('lodash');
+const prompt       = require('prompt');
 const chalk        = require('chalk');
 const generator    = require('./generator');
 const configparser = require('./configparser');
@@ -35,10 +37,9 @@ function getConfig(commander) {
   return config;
 }
 
-function process(commander) {
-  let config    = getConfig(commander);
-  let className = commander.args[0];
-  let file      = null
+function generateFile(className, config) {
+  let file = null;
+
   try {
     file = generator.generate(className, config);
   } catch (e) {
@@ -51,6 +52,30 @@ function process(commander) {
   }
 }
 
+function run(commander) {
+  let config              = getConfig(commander);
+  let className           = commander.args[0];
+  const overwriteQuestion = 'file already exist, overwrite ? y/n';
+  const fileName          = [process.cwd(), `${className}.jsx`].join('/');
+
+  try {
+    //checking if file already exists
+    fs.accessSync(fileName);
+    // if no errors file exists so we prompt for overwrite
+    prompt.get([overwriteQuestion], function(err, result) {
+      const response = result[overwriteQuestion];
+      if (response === 'y') {
+        generateFile(className, config);
+      } else {
+        console.log(chalk.yellow('* nothing done.'));
+      }
+    });
+  } catch (e) {
+    //file doesn't exisit we can write on fs
+    generateFile(className, config);
+  }
+}
+
 module.exports = {
-  process
+  run
 };
