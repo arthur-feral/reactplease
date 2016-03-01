@@ -47,6 +47,7 @@ and The last argument expected by command is the class name
 *Example*
 ```bash
 reactplease --es6 ---import lodash,classnames MyFancyReactClass
+reactplease --ignore --es6 ---import lodash my/path/to/MyFancyReactClass
 ```
 
 will output a file in the current working directory named ```MyFancyReactClass.jsx```
