@@ -29,14 +29,17 @@ Simply create a ```.reactpleaserc``` file, and using JSON syntax, add options as
 ```
 ###Options
 **ignore**
-```--ignore``` if you provide this flag on CLI, the program will ignore 
-```.reactpleaserc``` file
+
+```--ignore``` if you provide this flag on CLI, the program will ignore ```.reactpleaserc``` file
 
 **es6**
+
 ```--es6``` flag will generate your JSX class file with ECMAScript2015 syntax
 
 **import**
+
 ```--import <packages>``` you can automaticly import packages top of the React file
+
 *Example*
 ```--import lodash,classnames```
 and The last argument expected by command is the class name

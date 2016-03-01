@@ -1,11 +1,13 @@
 'use strict';
 
 const React = require('react');
-<% imports %>
+const lodash = require('lodash');
+const classnames = require('classnames');
+
 
 module.exports = () => {
   return React.createClass({
-    displayName: '<% className %>',
+    displayName: 'Toto',
     mixins: [],
     propTypes: {},
     getDefaultProps() {

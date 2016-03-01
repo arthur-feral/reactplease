@@ -2,53 +2,48 @@
 
 var React = require('react');
 <% imports %>
-
 module.exports = function() {
-    return React.createClass({
-        displayName: '<% className %>',
-        mixins: [],
-        propTypes: {
+  return React.createClass({
+    displayName: '<% className %>',
+    mixins: [],
+    propTypes: {},
+    getDefaultProps: function() {
+      return {};
+    },
+    getInitialState: function() {
+      return {};
+    },
 
-        },
-        getDefaultProps: function() {
-            return {};
-        },
-        getInitialState: function() {
-            return {
+    componentWillMount: function() {
 
-            };
-        },
+    },
+    componentDidMount: function() {
 
-        componentWillMount: function() {
+    },
+    componentWillReceiveProps: function(nextProps) {
 
-        },
-        componentDidMount: function() {
+    },
 
-        },
-        componentWillReceiveProps: function(nextProps) {
+    shouldComponentUpdate: function(nextProps, nextState) {
+      return true;
+    },
 
-        },
+    componentWillUpdate: function(nextProps, nextState) {
 
-        shouldComponentUpdate: function(nextProps, nextState) {
-            return true;
-        },
+    },
 
-        componentWillUpdate: function(nextProps, nextState) {
+    componentDidUpdate: function(prevProps, prevState) {
 
-        },
+    },
 
-        componentDidUpdate: function(prevProps, prevState) {
+    componentWillUnmount: function() {
 
-        },
+    },
 
-        componentWillUnmount: function() {
-
-        },
-
-        render: function() {
-            return (
-                <div></div>
-            );
-        }
-    });
+    render: function() {
+      return (
+        <div></div>
+      );
+    }
+  });
 };
