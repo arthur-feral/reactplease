@@ -2,7 +2,6 @@
 
 const fs           = require('fs');
 const _            = require('lodash');
-const prompt       = require('prompt');
 const chalk        = require('chalk');
 const generator    = require('./generator');
 const configparser = require('./configparser');
@@ -39,38 +38,11 @@ function getConfig(commander) {
   return config;
 }
 
-function generateFile(className, config) {
-  try {
-    generator.generate(className, config);
-    console.log(chalk.green('* React Class %s created'), className);
-  } catch (e) {
-    console.log(chalk.red('! Something went wrong while creating React Class file %s'), className);
-    console.log(chalk.red('! %s'), e.message);
-  }
-}
-
 function run(commander) {
   let config              = getConfig(commander);
   let className           = commander.args[0];
-  const overwriteQuestion = 'file already exist, overwrite ? y/n';
-  const fileName          = [process.cwd(), `${className}.${config.extension}`].join('/');
 
-  try {
-    //checking if file already exists
-    fs.accessSync(fileName);
-    // if no errors file exists so we prompt for overwrite
-    prompt.get([overwriteQuestion], function(err, result) {
-      const response = result[overwriteQuestion];
-      if (response === 'y') {
-        generateFile(className, config);
-      } else {
-        console.log(chalk.yellow('* nothing done.'));
-      }
-    });
-  } catch (e) {
-    //file doesn't exisit we can write on fs
-    generateFile(className, config);
-  }
+  generator.generate(className, config);
 }
 
 module.exports = {
