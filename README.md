@@ -60,8 +60,8 @@ const classnames = require('classnames');
 
 *Examples*
 ```bash
-reactplease --es6 ---import lodash,classnames HeaderMenu
-reactplease --ignore --es6 ---import lodash my/path/to/MyFancyReactClass
+reactplease --es6 --import lodash,classnames HeaderMenu
+reactplease --ignore --es6 --import lodash my/path/to/MyFancyReactClass
 reactplease -e react Avatar
 ```
 
